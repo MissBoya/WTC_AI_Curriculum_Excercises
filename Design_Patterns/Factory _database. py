@@ -1,0 +1,75 @@
+# Factory Pattern
+# Creates database objects in one place.
+
+
+class MySQLConnection:
+
+
+    def connect(self):
+
+        return "Connected to MySQL"
+
+
+
+class PostgreSQLConnection:
+
+
+    def connect(self):
+
+        return "Connected to PostgreSQL"
+
+
+
+class MongoDBConnection:
+
+
+    def connect(self):
+
+        return "Connected to MongoDB"
+
+
+
+
+class DatabaseFactory:
+
+
+    @staticmethod
+    def create_database(database_type):
+
+
+        databases = {
+
+
+            "mysql":
+            MySQLConnection(),
+
+
+            "postgresql":
+            PostgreSQLConnection(),
+
+
+            "mongodb":
+            MongoDBConnection()
+
+        }
+
+
+
+        if database_type not in databases:
+
+            raise ValueError(
+                "Unsupported database"
+            )
+
+
+
+        return databases[database_type]
+
+
+
+
+database =
+DatabaseFactory.create_database("mysql")
+
+
+print(database.connect())
