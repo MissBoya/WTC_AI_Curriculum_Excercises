@@ -1,0 +1,1 @@
+# WTC_AI_Curriculum_Excercises
