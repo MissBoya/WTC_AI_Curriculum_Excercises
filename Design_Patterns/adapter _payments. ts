@@ -1,0 +1,73 @@
+interface PaymentProcessor {
+
+
+    pay(amount:number):string;
+
+}
+
+
+
+
+class StripeAPI {
+
+
+    charge(amount:number){
+
+        return "Stripe payment: " + amount;
+
+    }
+
+}
+
+
+
+
+class StripeAdapter
+implements PaymentProcessor {
+
+
+    private stripe =
+    new StripeAPI();
+
+
+
+    pay(amount:number){
+
+        return this.stripe.charge(amount);
+
+    }
+
+}
+
+
+
+
+class PaymentService {
+
+
+    constructor(
+        private processor: PaymentProcessor
+    ){}
+
+
+
+    process(amount:number){
+
+        return this.processor.pay(amount);
+
+    }
+
+}
+
+
+
+
+const payment =
+new PaymentService(
+    new StripeAdapter()
+);
+
+
+console.log(
+    payment.process(100)
+);
