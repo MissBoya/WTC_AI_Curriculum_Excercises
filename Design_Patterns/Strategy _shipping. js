@@ -1,0 +1,125 @@
+// Strategy Pattern
+// Each shipping method has its own calculation rules.
+
+class StandardShipping {
+
+    calculate(packageDetails, country) {
+
+        const rates = {
+            USA: 2.5,
+            Canada: 3.5,
+            Mexico: 4.0
+        };
+
+
+        let rate = rates[country] || 4.5;
+
+
+        let cost =
+            packageDetails.weight * rate;
+
+
+        if (
+            packageDetails.weight < 2 &&
+            packageDetails.length *
+            packageDetails.width *
+            packageDetails.height > 1000
+        ) {
+
+            cost += 5;
+        }
+
+
+        return cost;
+    }
+}
+
+
+
+class ExpressShipping {
+
+
+    calculate(packageDetails, country) {
+
+
+        const rates = {
+
+            USA: 4.5,
+            Canada: 5.5,
+            Mexico: 6
+        };
+
+
+        let rate =
+            rates[country] || 7.5;
+
+
+        let cost =
+            packageDetails.weight * rate;
+
+
+        if (
+            packageDetails.length *
+            packageDetails.width *
+            packageDetails.height > 5000
+        ){
+
+            cost += 15;
+        }
+
+
+        return cost;
+    }
+}
+
+
+
+
+class ShippingCalculator {
+
+
+    constructor(strategy){
+
+        this.strategy = strategy;
+    }
+
+
+
+    calculate(packageDetails, country){
+
+
+        return this.strategy
+            .calculate(packageDetails, country)
+            .toFixed(2);
+
+    }
+
+}
+
+
+
+
+const packageDetails = {
+
+    weight:5,
+    length:10,
+    width:10,
+    height:10
+
+};
+
+
+
+const calculator =
+new ShippingCalculator(
+    new StandardShipping()
+);
+
+
+
+console.log(
+    calculator.calculate(
+        packageDetails,
+        "USA"
+    )
+);
