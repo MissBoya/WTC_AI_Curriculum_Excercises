@@ -1,24 +1,27 @@
- WTC AI Curriculum - Design Pattern Implementation Challenge
+WTC AI Curriculum - Design Pattern 
 
- Overview
+Implementation Challenge
+
+Overview
+
 This repository contains refactored code examples demonstrating different software design patterns.
 
 The goal of this exercise was to identify problems in existing code and improve maintainability by applying appropriate design patterns.
 
 
 
- 1. Strategy Pattern - Shipping Calculator
+1. Strategy Pattern - Shipping Calculator
 
 File:
 Strategy_shipping.js
 
- Problem:
+Problem:
 The original code contained many conditional statements for different shipping methods and countries.
 
- Solution:
+Solution:
 Implemented the Strategy pattern by separating each shipping calculation into its own strategy.
 
- Benefits:
+Benefits:
 - Easier to add new shipping methods
 - Reduced complex if/else statements
 - Improved code readability
@@ -26,43 +29,43 @@ Implemented the Strategy pattern by separating each shipping calculation into it
 
 
 
- 2. Factory Pattern - Database Connections
+2. Factory Pattern - Database Connections
 
 File:
 Factory_database.py
 
- Problem:
+Problem:
 Creating different database connections required complex initialization logic.
 
- Solution:
+Solution:
 Implemented the Factory pattern to handle object creation.
 
- Benefits:
+Benefits:
 - Simplifies object creation
 - Makes adding new database types easier
 - Keeps creation logic in one place
 
----
 
- 3. Adapter Pattern - Payment Processing
+
+3. Adapter Pattern - Payment Processing
 
 File:
 adapter_payments.ts
 
- Problem:
+Problem:
 Different payment APIs had incompatible interfaces.
 
- Solution:
+Solution:
 Implemented the Adapter pattern to make external payment systems work with the application's interface.
 
- Benefits:
+Benefits:
 - Allows integration with different payment providers
 - Reduces changes to existing code
 - Improves flexibility and maintainability
 
 
 
- Reflection
+Reflection
 
 Implementing design patterns improved the structure and readability of the code.
 
